@@ -1,0 +1,204 @@
+    local Ragdoll = function(Character)
+    Character.Humanoid.PlatformStand = true
+    Character.Humanoid.Sit = true
+    Torso = Character:FindFirstChild("Torso")
+    Torso["Right Shoulder"]:Destroy()
+    Torso["Left Shoulder"]:Destroy()
+    Torso["Right Hip"]:Destroy()
+    Torso["Left Hip"]:Destroy()
+    if Torso then
+      local Head = Character:FindFirstChild("Head")
+      if Head then
+        local Neck = Instance.new("Weld")
+        Neck.Name = "Neck"
+        Neck.Part0 = Torso
+        Neck.Part1 = Head
+        Neck.C0 = CFrame.new(0, 1.5, 0)
+        Neck.C1 = CFrame.new()
+        Neck.Parent = Torso
+      end
+      w = Instance.new("Weld", Character.HumanoidRootPart)
+      w.Part0 = Torso
+      w.Part1 = Character.HumanoidRootPart
+      w.C0 = CFrame.new(0, 0, 0)
+      local Limb = Character:FindFirstChild("Right Arm")
+      if Limb then
+        local Joint = Instance.new("Glue")
+        Joint.Name = "Right Shoulder"
+        Joint.Part0 = Torso
+        Joint.Part1 = Limb
+        Joint.C0 = CFrame.new(1.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+        Joint.C1 = CFrame.new(0, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+        Joint.Parent = Torso
+        local B = Instance.new("Part")
+        B.TopSurface = 0
+        B.BottomSurface = 0
+        B.formFactor = "Symmetric"
+        B.Size = Vector3.new(1, 1, 1)
+        B.Transparency = 1
+        B.CFrame = Limb.CFrame * CFrame.new(0, -0.5, 0)
+        B.Parent = Character
+        local W = Instance.new("Weld")
+        W.Part0 = Limb
+        W.Part1 = B
+        W.C0 = CFrame.new(0, -0.5, 0)
+        W.Parent = Limb
+      end
+      local Limb = Character:FindFirstChild("Left Arm")
+      if Limb then
+        local Joint = Instance.new("Glue")
+        Joint.Name = "Left Shoulder"
+        Joint.Part0 = Torso
+        Joint.Part1 = Limb
+        Joint.C0 = CFrame.new(-1.5, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+        Joint.C1 = CFrame.new(0, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+        Joint.Parent = Torso
+        local B = Instance.new("Part")
+        B.TopSurface = 0
+        B.BottomSurface = 0
+        B.formFactor = "Symmetric"
+        B.Size = Vector3.new(1, 1, 1)
+        B.Transparency = 1
+        B.CFrame = Limb.CFrame * CFrame.new(0, -0.5, 0)
+        B.Parent = Character
+        local W = Instance.new("Weld")
+        W.Part0 = Limb
+        W.Part1 = B
+        W.C0 = CFrame.new(0, -0.5, 0)
+        W.Parent = Limb
+      end
+      local Limb = Character:FindFirstChild("Right Leg")
+      if Limb then
+        local Joint = Instance.new("Glue")
+        Joint.Name = "Right Hip"
+        Joint.Part0 = Torso
+        Joint.Part1 = Limb
+        Joint.C0 = CFrame.new(0.5, -1, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+        Joint.C1 = CFrame.new(0, 1, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+        Joint.Parent = Torso
+        local B = Instance.new("Part")
+        B.TopSurface = 0
+        B.BottomSurface = 0
+        B.formFactor = "Symmetric"
+        B.Size = Vector3.new(1, 1, 1)
+        B.Transparency = 1
+        B.CFrame = Limb.CFrame * CFrame.new(0, -0.5, 0)
+        B.Parent = Character
+        local W = Instance.new("Weld")
+        W.Part0 = Limb
+        W.Part1 = B
+        W.C0 = CFrame.new(0, -0.5, 0)
+        W.Parent = Limb
+      end
+      local Limb = Character:FindFirstChild("Left Leg")
+      if Limb then
+        local Joint = Instance.new("Glue")
+        Joint.Name = "Left Hip"
+        Joint.Part0 = Torso
+        Joint.Part1 = Limb
+        Joint.C0 = CFrame.new(-0.5, -1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+        Joint.C1 = CFrame.new(0, 1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+        Joint.Parent = Torso
+        local B = Instance.new("Part")
+        B.TopSurface = 0
+        B.BottomSurface = 0
+        B.formFactor = "Symmetric"
+        B.Size = Vector3.new(1, 1, 1)
+        B.Transparency = 1
+        B.CFrame = Limb.CFrame * CFrame.new(0, -0.5, 0)
+        B.Parent = Character
+        local W = Instance.new("Weld")
+        W.Part0 = Limb
+        W.Part1 = B
+        W.C0 = CFrame.new(0, -0.5, 0)
+        W.Parent = Limb
+      end
+      local Bar = Instance.new("Part")
+      Bar.TopSurface = 0
+      Bar.BottomSurface = 0
+      Bar.formFactor = "Symmetric"
+      Bar.Size = Vector3.new(1, 1, 1)
+      Bar.Transparency = 1
+      Bar.CFrame = Torso.CFrame * CFrame.new(0, 0.5, 0)
+      Bar.Parent = Character
+      local Weld = Instance.new("Weld")
+      Weld.Part0 = Torso
+      Weld.Part1 = Bar
+      Weld.C0 = CFrame.new(0, 0.5, 0)
+      Weld.Parent = Torso
+    end
+    Character.Humanoid:ChangeState("Physics")
+  end
+  local Player = game.Players.LocalPlayer
+  local Character = Player.Character
+  local Mouse = Player:GetMouse()
+  local UserInputService = game:GetService("UserInputService")
+  Ragdoll(Character)
+  LT = Instance.new("Tool", Player.Backpack)
+  LT.Name = "Left"
+  LT.RequiresHandle = false
+  LT.Activated:connect(function()
+    local Mouse = Player:GetMouse()
+    if Character:FindFirstChild("Rope2") then
+      Character.Rope2:Destroy()
+    elseif Mouse.Target then
+      rope = Instance.new("RopeConstraint", Character)
+      rope.Name = "Rope2"
+      A0 = Instance.new("Attachment")
+      A1 = A0:Clone()
+      A0.Parent = Character["Left Arm"]
+      A0.Position = Vector3.new(0, -1, 0)
+      A1.Parent = Mouse.Target
+      A1.Position = Mouse.Hit.p - Mouse.Target.Position
+      rope.Length = (A1.WorldPosition - A0.WorldPosition).magnitude
+      rope.Attachment0 = A0
+      rope.Attachment1 = A1
+      rope.Visible = true
+    end
+  end)
+  RT = Instance.new("Tool", Player.Backpack)
+  RT.Name = "Right"
+  RT.RequiresHandle = false
+  RT.Activated:connect(function()
+    local Mouse = Player:GetMouse()
+    if Character:FindFirstChild("Rope") then
+      Character.Rope:Destroy()
+    elseif Mouse.Target then
+      rope = Instance.new("RopeConstraint", Character)
+      rope.Name = "Rope"
+      A0 = Instance.new("Attachment")
+      A1 = A0:Clone()
+      A0.Parent = Character["Right Arm"]
+      A0.Position = Vector3.new(0, -1, 0)
+      A1.Parent = Mouse.Target
+      A1.Position = Mouse.Hit.p - Mouse.Target.Position
+      rope.Length = (A1.WorldPosition - A0.WorldPosition).magnitude
+      rope.Attachment0 = A0
+      rope.Attachment1 = A1
+      rope.Visible = true
+    end
+  end)
+  coroutine.resume(coroutine.create(function()
+    while wait() do
+      rope = Character:FindFirstChild("Rope")
+      rope2 = Character:FindFirstChild("Rope2")
+      x = UserInputService:GetKeysPressed()
+      for i, v in pairs(x) do
+        if rope then
+          if v.KeyCode == Enum.KeyCode.Q then
+            rope.Length = rope.Length - 0.5
+          elseif v.KeyCode == Enum.KeyCode.E then
+            rope.Length = rope.Length + 0.1
+          end
+        end
+        if rope2 then
+          if v.KeyCode == Enum.KeyCode.W then
+            rope2.Length = rope2.Length - 0.5
+          elseif v.KeyCode == Enum.KeyCode.S then
+            rope2.Length = rope2.Length + 0.1
+          end
+        end
+      end
+    end
+  end))
+  

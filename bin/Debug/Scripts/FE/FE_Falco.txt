@@ -1,0 +1,298 @@
+local fe_falco = Instance.new("ScreenGui",game.CoreGui)
+fe_falco.Name = "INSERT YOUR NAME HERE"
+local dragFrame = Instance.new("Frame",fe_falco)
+dragFrame.Name = "dragFrame"
+dragFrame.Active = true
+dragFrame.BackgroundColor3 = Color3.new(0.698039, 0.133333, 0.133333)
+dragFrame.BorderSizePixel = 0
+dragFrame.Draggable = true
+dragFrame.Position = UDim2.new(0.366384506, 0, 0.245059296, 0)
+dragFrame.Size = UDim2.new(0, 220, 0, 36)
+
+local dragText = Instance.new("TextLabel",dragFrame)
+dragText.Name = "dragText"
+dragText.BackgroundColor3 = Color3.new(1, 1, 1)
+dragText.BackgroundTransparency = 1
+dragText.Size = UDim2.new(0, 110, 0, 36)
+dragText.Font = Enum.Font.SourceSansBold
+dragText.FontSize = Enum.FontSize.Size24
+dragText.Text = "FE_FALCO"
+dragText.TextColor3 = Color3.new(1, 1, 1)
+dragText.TextSize = 23
+
+local shadowImage = Instance.new("ImageLabel",dragFrame)
+shadowImage.Name = "shadowImage"
+shadowImage.Parent = dragFrame
+shadowImage.BackgroundColor3 = Color3.new(1, 1, 1)
+shadowImage.BackgroundTransparency = 1
+shadowImage.Position = UDim2.new(0, 0, 1, 0)
+shadowImage.Size = UDim2.new(1, 0, 0, 5)
+
+shadowImage.Image = "rbxasset://textures/ui/TopBar/dropshadow@2x.png"
+local ScrollingFrame = Instance.new("ScrollingFrame",dragFrame)
+ScrollingFrame.Name = "ScrollingFrame"
+ScrollingFrame.Parent = dragFrame
+ScrollingFrame.BackgroundColor3 = Color3.new(0.584314, 0.101961, 0.101961)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0, 0, 1, 0)
+ScrollingFrame.Size = UDim2.new(1, 0, 0, 240)
+ScrollingFrame.ZIndex = 2
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 8, 0)
+ScrollingFrame.ScrollBarThickness = 5
+
+local FeLag = Instance.new("TextButton",ScrollingFrame)
+FeLag.Name = "Fe Lag"
+FeLag.Parent = ScrollingFrame
+FeLag.Active = false
+FeLag.AnchorPoint = Vector2.new(0.0500000007, 0.800000012)
+FeLag.BackgroundColor3 = Color3.new(0.698039, 0.133333, 0.133333)
+FeLag.BorderSizePixel = 0
+FeLag.Position = UDim2.new(0.100000001, 0, 0.463, 0)
+FeLag.Size = UDim2.new(0, 200, 0, 36)
+FeLag.ZIndex = 2
+FeLag.Font = Enum.Font.SourceSansBold
+FeLag.FontSize = Enum.FontSize.Size24
+FeLag.Text = "Fe Lag"
+FeLag.TextColor3 = Color3.new(1, 1, 1)
+FeLag.TextSize = 19
+
+local FeBlocks = Instance.new("TextButton",ScrollingFrame)
+FeBlocks.Name = "FeBlocks"
+FeBlocks.Parent = ScrollingFrame
+FeBlocks.AnchorPoint = Vector2.new(0.0500000007, 0)
+FeBlocks.BackgroundColor3 = Color3.new(0.698039, 0.133333, 0.133333)
+FeBlocks.BorderSizePixel = 0
+FeBlocks.Position = UDim2.new(0.100000001, 0, 0.0500000007, 0)
+FeBlocks.Size = UDim2.new(0, 200, 0, 36)
+FeBlocks.ZIndex = 2
+FeBlocks.Font = Enum.Font.SourceSansBold
+FeBlocks.FontSize = Enum.FontSize.Size24
+FeBlocks.Text = "Fe Blocks"
+FeBlocks.TextColor3 = Color3.new(1, 1, 1)
+FeBlocks.TextSize = 19
+
+local Headless = Instance.new("TextButton",ScrollingFrame)
+Headless.Name = "Headless"
+Headless.Parent = ScrollingFrame
+Headless.AnchorPoint = Vector2.new(0.0500000007, 0.639999986)
+Headless.BackgroundColor3 = Color3.new(0.698039, 0.133333, 0.133333)
+Headless.BorderSizePixel = 0
+Headless.Position = UDim2.new(0.100000001, 0, 0.600000024, 0)
+Headless.Size = UDim2.new(0, 200, 0, 36)
+Headless.ZIndex = 2
+Headless.Font = Enum.Font.SourceSansBold
+Headless.FontSize = Enum.FontSize.Size24
+Headless.Text = "Headless"
+Headless.TextColor3 = Color3.new(1, 1, 1)
+Headless.TextSize = 19
+
+local ServerCrasher = Instance.new("TextButton",ScrollingFrame)
+ServerCrasher.Name = "Server Crasher"
+ServerCrasher.Parent = ScrollingFrame
+ServerCrasher.AnchorPoint = Vector2.new(0.0500000007, 0.600000024)
+ServerCrasher.BackgroundColor3 = Color3.new(0.698039, 0.133333, 0.133333)
+ServerCrasher.BorderSizePixel = 0
+ServerCrasher.Position = UDim2.new(0.100000001, 0, 0.280000001, 0)
+ServerCrasher.Size = UDim2.new(0, 200, 0, 36)
+ServerCrasher.ZIndex = 2
+ServerCrasher.Font = Enum.Font.SourceSansBold
+ServerCrasher.FontSize = Enum.FontSize.Size24
+ServerCrasher.Text = "Server Crasher"
+ServerCrasher.TextColor3 = Color3.new(1, 1, 1)
+ServerCrasher.TextSize = 19
+
+local Tornado = Instance.new("TextButton",ScrollingFrame)
+Tornado.Name = "Tornado"
+Tornado.Parent = ScrollingFrame
+Tornado.AnchorPoint = Vector2.new(0.0500000007, 0.600000024)
+Tornado.BackgroundColor3 = Color3.new(0.698039, 0.133333, 0.133333)
+Tornado.BorderSizePixel = 0
+Tornado.Position = UDim2.new(0.100000001, 0, 0.75, 0)
+Tornado.Size = UDim2.new(0, 200, 0, 36)
+Tornado.ZIndex = 2
+Tornado.Font = Enum.Font.SourceSansBold
+Tornado.FontSize = Enum.FontSize.Size24
+Tornado.Text = "Tornado"
+Tornado.TextColor3 = Color3.new(1, 1, 1)
+Tornado.TextSize = 19
+
+local FeInvisible = Instance.new("TextButton",ScrollingFrame)
+FeInvisible.Name = "Fe Invisible"
+FeInvisible.Parent = ScrollingFrame
+FeInvisible.AnchorPoint = Vector2.new(0.0500000007, 1)
+FeInvisible.BackgroundColor3 = Color3.new(0.698039, 0.133333, 0.133333)
+FeInvisible.BorderSizePixel = 0
+FeInvisible.Position = UDim2.new(0.100000001, 0, 0.949999988, 0)
+FeInvisible.Size = UDim2.new(0, 200, 0, 36)
+FeInvisible.ZIndex = 2
+FeInvisible.Font = Enum.Font.SourceSansBold
+FeInvisible.FontSize = Enum.FontSize.Size24
+FeInvisible.Text = "Fe Invisible"
+FeInvisible.TextColor3 = Color3.new(1, 1, 1)
+FeInvisible.TextSize = 19
+
+--// Scripting
+
+function blocks()
+	for i=1,20 do
+wait(1)
+        for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if v:IsA'Accoutrement' then
+v.Parent=game.Players.LocalPlayer.Character
+v.Parent = workspace.Terrain
+end
+end
+for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+if v:IsA'Accoutrement' then
+v.Handle.Mesh:Destroy()
+v.Handle:FindFirstChildOfClass'Weld':Destroy()
+v.Handle:FindFirstChildOfClass'Attachment':Destroy()
+wait'.1'
+v.Parent=game.Players.LocalPlayer.StarterGear
+end
+end
+for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+v:Destroy()
+end
+local prt=Instance.new("Model", workspace);
+        Instance.new("Part", prt).Name="Torso";
+        Instance.new("Part", prt).Name="Head";
+        Instance.new("Humanoid", prt).Name="Humanoid";
+        game.Players.LocalPlayer.Character=prt
+        end
+end
+
+function crasher()
+for i=1,20 do
+wait(1)
+        for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if v:IsA'Accoutrement' then
+v.Parent=game.Players.LocalPlayer.Character
+v.Parent = workspace.Terrain
+end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+if v:IsA'Accoutrement' then
+for ape,hax in pairs(v.Handle:GetChildren()) do
+hax:Destroy()
+end
+wait'.1'
+v.Parent=game.Players.LocalPlayer.StarterGear
+end
+end
+for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+v:Destroy()
+end
+local prt=Instance.new("Model", workspace);
+        Instance.new("Part", prt).Name="Torso";
+        Instance.new("Part", prt).Name="Head";
+        Instance.new("Humanoid", prt).Name="Humanoid";
+        game.Players.LocalPlayer.Character=prt
+
+repeat wait(1) until game.Players.LocalPlayer.Character:FindFirstChild'Head'
+for lol,dad in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if dad:IsA'Accoutrement' then
+dad.Parent = game.Players.LocalPlayer.StarterGear
+end
+end
+for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+v:Destroy()
+end
+local prt2=Instance.new("Model", workspace);
+        Instance.new("Part", prt).Name="Torso";
+        Instance.new("Part", prt).Name="Head";
+        Instance.new("Humanoid", prt).Name="Humanoid";
+        game.Players.LocalPlayer.Character=prt
+end
+end
+
+function lag()
+while true do
+game.Players.LocalPlayer.Character.Head:Destroy()
+for _,v in next, game.Players.LocalPlayer.Character:children() do
+if v:IsA("Accessory") then
+v.Parent = game.StarterPlayer.StarterCharacterScripts
+end
+end
+wait(7)
+end
+end
+
+function headless()
+local player = game.Players.LocalPlayer
+player.Character.Head.Mesh:Destroy()
+player.Character.Head.face:Destroy()
+for remove,hat in pairs(player.Character:GetChildren()) do
+if hat:IsA'Accoutrement' then
+hat:Destroy()
+end
+end
+weld = Instance.new("Weld", player.Character.Head)
+        weld.Part1 = player.Character.Torso
+        weld.Part0 = player.Character.Head
+end
+
+function tornado()
+	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+if v.ClassName == "Accessory"  then 
+v.AttachmentForward = Vector3.new(0,0,-1)
+v.AttachmentPos = Vector3.new(0,0,.225,-0.3)
+v.AttachmentRight = Vector3.new(1,0,0)
+v.AttachmentUp = Vector3.new(0,1,0)
+v.Handle.Mesh:remove()
+v.Handle.Anchored = false
+v.Handle.CanCollide = true
+v.Parent = game.Workspace.Terrain
+while wait()  do
+v.Handle.Position = game.Players.LocalPlayer.Character.Torso.Position
+v.Handle.Rotation = Vector3.new(v.Handle.Rotation.X,v.Handle.Rotation.Y,v.Handle.Rotation.Z +100000)
+end
+end
+end
+end
+
+function invisible()
+	local player = game.Players.LocalPlayer
+player.Character.Head.Mesh:Destroy()
+player.Character.Head.face:Destroy()
+for remove,hat in pairs(player.Character:GetChildren()) do
+if hat:IsA'Accoutrement' then
+hat:Destroy()
+end
+end
+weld = Instance.new("Weld", player.Character.Head)
+        weld.Part1 = player.Character.Torso
+        weld.Part0 = player.Character.Head
+wait()
+local weld = Instance.new('Weld')
+weld.Parent = game.Players.LocalPlayer.Character.Torso
+weld.Part0 = weld.Parent
+weld.Part1 = weld.Parent.Parent.HumanoidRootPart
+weld.C0 = CFrame.new(0, 300, 0)
+weld.Parent.Parent.Head.CanCollide = true
+end
+
+FeLag.MouseButton1Down:connect(function()
+	lag()
+end)
+
+FeBlocks.MouseButton1Down:connect(function()
+	blocks()
+end)
+
+Headless.MouseButton1Down:connect(function()
+	headless()
+end)
+
+ServerCrasher.MouseButton1Down:connect(function()
+	crasher()
+end)
+
+Tornado.MouseButton1Down:connect(function()
+	tornado()
+end)
+
+FeInvisible.MouseButton1Down:connect(function()
+	invisible()
+end)
+
