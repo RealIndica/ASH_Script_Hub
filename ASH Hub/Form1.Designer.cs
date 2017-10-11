@@ -48,6 +48,11 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.CategoryClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
+            this.CategoryClick.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -184,6 +190,7 @@
             "ProtoSmasher",
             "Stella",
             "Seraph",
+            "Veil",
             "Request More . . ."});
             this.comboBox1.Location = new System.Drawing.Point(523, 9);
             this.comboBox1.Name = "comboBox1";
@@ -319,6 +326,7 @@
             this.listBox1.Size = new System.Drawing.Size(144, 306);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDown);
             // 
             // listBox2
             // 
@@ -376,7 +384,6 @@
             this.fastColoredTextBox1.CommentPrefix = "--";
             this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox1.IsReplaceMode = false;
             this.fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.Lua;
             this.fastColoredTextBox1.LeftBracket = '(';
@@ -392,6 +399,44 @@
             this.fastColoredTextBox1.TabIndex = 2;
             this.fastColoredTextBox1.Text = "--Made With Love by Codex <3";
             this.fastColoredTextBox1.Zoom = 100;
+            // 
+            // CategoryClick
+            // 
+            this.CategoryClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCategoryToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.refreshToolStripMenuItem});
+            this.CategoryClick.Name = "CategoryClick";
+            this.CategoryClick.Size = new System.Drawing.Size(166, 92);
+            // 
+            // addCategoryToolStripMenuItem
+            // 
+            this.addCategoryToolStripMenuItem.Name = "addCategoryToolStripMenuItem";
+            this.addCategoryToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addCategoryToolStripMenuItem.Text = "Add Category . . .";
+            this.addCategoryToolStripMenuItem.Click += new System.EventHandler(this.addCategoryToolStripMenuItem_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -417,6 +462,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).EndInit();
+            this.CategoryClick.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -441,6 +487,11 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private System.Windows.Forms.ComboBox comboBox1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
+        private System.Windows.Forms.ContextMenuStrip CategoryClick;
+        private System.Windows.Forms.ToolStripMenuItem addCategoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
     }
 }
 

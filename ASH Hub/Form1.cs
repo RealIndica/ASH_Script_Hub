@@ -28,12 +28,28 @@ namespace ASH_Hub
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        [DllImport("USER32.DLL", CharSet = CharSet.Unicode)]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, uint msg, int wParam, string lParam);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
         public Form1()
         {
             InitializeComponent();
             panel1.BackColor = Color.FromArgb(200, 224, 224, 224);
             panel2.BackColor = Color.FromArgb(200, 224, 224, 224);
             comboBox1.Text = "ProtoSmasher";
+
+
+
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -85,9 +101,17 @@ namespace ASH_Hub
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void RefreshAll()
         {
+            listBox1.Items.Clear();
             listBox2.Items.Clear();
+
+            string path = Application.StartupPath + "/Scripts";
+
+            foreach (string s in Directory.GetDirectories(path))
+            {
+                listBox1.Items.Add(s.Remove(0, path.Length + 1));
+            }
 
             DirectoryInfo dinfo = new DirectoryInfo(Application.StartupPath + "/Scripts/" + listBox1.SelectedItem);
 
@@ -102,6 +126,33 @@ namespace ASH_Hub
             foreach (FileInfo file2 in Files2)
             {
                 listBox2.Items.Add(file2.Name);
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                listBox2.Items.Clear();
+
+                DirectoryInfo dinfo = new DirectoryInfo(Application.StartupPath + "/Scripts/" + listBox1.SelectedItem);
+
+                FileInfo[] Files = dinfo.GetFiles("*.txt");
+                FileInfo[] Files2 = dinfo.GetFiles("*.lua");
+
+                foreach (FileInfo file in Files)
+                {
+                    listBox2.Items.Add(file.Name);
+                }
+
+                foreach (FileInfo file2 in Files2)
+                {
+                    listBox2.Items.Add(file2.Name);
+                }
+            }
+            catch
+            {
+                RefreshAll();
             }
         }
 
@@ -159,6 +210,23 @@ namespace ASH_Hub
             {
                 ExecuteScript("SeraphPipe", fastColoredTextBox1.Text);
             }
+
+            if (comboBox1.Text == "Veil")
+            {
+                try
+                {
+                    IntPtr hwndParent = Form1.FindWindow("kLBi2xP0o4czr7ckuzyF", null);
+                    IntPtr hWnd = Form1.FindWindowEx(hwndParent, IntPtr.Zero, "Edit", null);
+                    IntPtr hWnd2 = Form1.FindWindowEx(hwndParent, IntPtr.Zero, "Button", null);
+                    SendMessage(hWnd, 12u, 0, fastColoredTextBox1.Text);
+                    PostMessage(hWnd2, 513u, IntPtr.Zero, IntPtr.Zero);
+                    PostMessage(hWnd2, 514u, IntPtr.Zero, IntPtr.Zero);
+                }
+                catch
+                {
+                    MessageBox.Show("An error has occured! Sorry . . .");
+                }
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -184,6 +252,39 @@ namespace ASH_Hub
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Not Yet Implemented");
+        }
+
+        private void listBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                CategoryClick.Show(MousePosition);
+            }
+        }
+
+        private void addCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewDirectory dir = new NewDirectory(this);
+            dir.StartPosition = FormStartPosition.CenterParent;
+            dir.ShowDialog(this);
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefreshAll();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Directory.Delete(Application.StartupPath + "/Scripts/" + listBox1.SelectedItem + "/");
+            RefreshAll();
+        }
+
+        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rename rename = new Rename(this, listBox1.SelectedItem.ToString());
+            rename.StartPosition = FormStartPosition.CenterParent;
+            rename.ShowDialog(this);
         }
     }
 }
