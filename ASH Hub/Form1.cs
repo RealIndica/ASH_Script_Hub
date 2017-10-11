@@ -115,78 +115,49 @@ namespace ASH_Hub
             fastColoredTextBox1.Text = script;
         }
 
+        void ExecuteScript(string pipe, string script)
+        {
+            try
+            {
+                NamedPipeClientStream namedPipeClientStream = new NamedPipeClientStream(pipe);
+                namedPipeClientStream.Connect(2);
+                if (namedPipeClientStream.IsConnected)
+                {
+                    using (StreamWriter streamWriter = new StreamWriter(namedPipeClientStream))
+                    {
+                        string text = script;
+                        streamWriter.WriteLine(text);
+                        streamWriter.Flush();
+                    }
+                    namedPipeClientStream.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("An error has occured! Sorry . . .");
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+
         private NamedPipeClientStream SeraphPipe;
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text == "ProtoSmasher")
             {
-                try
-                {
-                    NamedPipeClientStream namedPipeClientStream = new NamedPipeClientStream("ProtoSmasherPipe");
-                    namedPipeClientStream.Connect(2);
-                    if (namedPipeClientStream.IsConnected)
-                    {
-                        using (StreamWriter streamWriter = new StreamWriter(namedPipeClientStream))
-                        {
-                            string text = fastColoredTextBox1.Text;
-                            streamWriter.WriteLine(text);
-                            streamWriter.Flush();
-                        }
-                        namedPipeClientStream.Dispose();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Oops! Something went wrong, please try again!");
-                    }
-                }
-                catch (Exception)
-                {
-                }
+                ExecuteScript("ProtoSmasherPipe", fastColoredTextBox1.Text);
             }
 
             if (comboBox1.Text == "Stella")
             {
-                try
-                {
-                    using (NamedPipeClientStream namedPipeClientStream = new NamedPipeClientStream(".", "execution", PipeDirection.Out))
-                    {
-                        namedPipeClientStream.Connect();
-                        using (StreamWriter streamWriter = new StreamWriter(namedPipeClientStream))
-                        {
-                            streamWriter.Write(fastColoredTextBox1.Text);
-                            streamWriter.Dispose();
-                        }
-                        namedPipeClientStream.Dispose();
-                    }
-                }
-                catch (IOException ex)
-                {
-                    MessageBox.Show(new Form
-                    {
-                        TopMost = true
-                    }, ex.ToString());
-                }
+                ExecuteScript("execution", fastColoredTextBox1.Text);
             }
 
-            if (comboBox1.Text == "Seraph")
+            if (comboBox1.Text == "Seraph") 
             {
-                this.SeraphPipe = new NamedPipeClientStream(".", "SeraphPipe", PipeDirection.InOut);
-                try
-                {
-                    this.SeraphPipe.Connect();
-                    StreamWriter expr_22 = new StreamWriter(this.SeraphPipe);
-                    expr_22.Write(fastColoredTextBox1.Text);
-                    expr_22.Flush();
-                    Thread.Sleep(10);
-                    SeraphPipe.Dispose();
-                }
-                catch (InvalidOperationException)
-                {
-                }
-                catch (IOException)
-                {
-                }
+                ExecuteScript("SeraphPipe", fastColoredTextBox1.Text);
             }
         }
 
