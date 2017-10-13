@@ -227,6 +227,23 @@ namespace ASH_Hub
                     MessageBox.Show("An error has occured! Sorry . . .");
                 }
             }
+
+            if (comboBox1.Text == "R1")
+            {
+                R1exec(fastColoredTextBox1.Text);
+            }
+        }
+
+        void R1exec(string code)
+        {
+            try
+            {
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\r1comm", "lua " + code);
+            }
+            catch
+            {
+                R1exec(code);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,6 +258,11 @@ namespace ASH_Hub
                 Request req = new Request();
                 req.Show();
                 comboBox1.Text = "ProtoSmasher";
+            }
+
+            if (comboBox1.Text == "R1")
+            {
+                MessageBox.Show("If you haven't already, put the R1 files in with the ASH executable & vice versa due to R1s crappy method of execution");
             }
         }
 
