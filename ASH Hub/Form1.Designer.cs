@@ -192,6 +192,7 @@
             "Seraph",
             "Veil",
             "R1",
+            "RC7",
             "Request More . . ."});
             this.comboBox1.Location = new System.Drawing.Point(523, 9);
             this.comboBox1.Name = "comboBox1";

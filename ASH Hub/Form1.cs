@@ -15,6 +15,9 @@ using System.Net;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.IO.Pipes;
+using WebSocketSharp.Server;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ASH_Hub
 {
@@ -196,9 +199,26 @@ namespace ASH_Hub
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "ProtoSmasher")
+            if (comboBox1.Text == "ProtoSmasher") //slappy made his execution weird, so this is it now lol
             {
-                ExecuteScript("ProtoSmasherPipe", fastColoredTextBox1.Text);
+                try
+                {
+                    Dictionary<string, string> value = new Dictionary<string, string>
+            {
+                {
+                    "Action",
+                    "ExecuteSource"
+                },
+                {
+                    "Value",
+                    fastColoredTextBox1.Text
+                }
+            };
+                    GClass3.gclass3_0.Context.WebSocket.Send(JsonConvert.SerializeObject(value));
+                }
+                catch
+                {
+                }
             }
 
             if (comboBox1.Text == "Stella")
@@ -231,6 +251,11 @@ namespace ASH_Hub
             if (comboBox1.Text == "R1")
             {
                 R1exec(fastColoredTextBox1.Text);
+            }
+
+            if (comboBox1.Text == "RC7")
+            {
+
             }
         }
 
